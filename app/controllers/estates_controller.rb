@@ -7,13 +7,17 @@ class EstatesController < ApplicationController
 
   def show
     @estate = Estate.find(params[:id])
+    @stations = @estate.stations
   end
 
   def new
     @estate = Estate.new
+    2.times {@estate.stations.build}
   end
 
   def edit
+    @estate.stations.build
+    @estates = Station.all
   end
 
   def create
